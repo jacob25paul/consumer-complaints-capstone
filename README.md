@@ -2,7 +2,16 @@
 
 Springboard Data Science Career Track, Capstone Three
 
-**Status:** data wrangling and EDA complete ([`notebooks/01_data_wrangling_and_eda.ipynb`](notebooks/01_data_wrangling_and_eda.ipynb)). Modelling notebooks and the final report will follow.
+**Status:** data wrangling and EDA ([`01_data_wrangling_and_eda.ipynb`](notebooks/01_data_wrangling_and_eda.ipynb)) and pre-processing and modelling ([`02_preprocessing_and_modeling.ipynb`](notebooks/02_preprocessing_and_modeling.ipynb)) complete. The final report and slides will follow.
+
+## Results so far (test set: complaints received in 2025)
+
+| Task | Final model | Test result | Baseline |
+|---|---|---|---|
+| Routing (11 products) | TF-IDF + structured logistic regression | macro-F1 **0.70** | majority class 0.08; form fields only 0.56 |
+| Monetary relief vs explanation | LightGBM on TF-IDF + structured fields | average precision **0.32** (86% of relief cases in the top 10%) | base rate 0.02; form fields only 0.30 |
+
+The narrative clearly improves routing. For relief, most of the signal comes from the product, company and issue. The narrative adds little overall but lifts AP 3–4× inside credit reporting and debt collection. Full comparison: [`reports/model_metrics.md`](reports/model_metrics.md).
 
 ## Problem
 
@@ -40,8 +49,9 @@ consumer-complaints-capstone/
 │   ├── raw/        The 21 CFPB archive exports (not tracked)
 │   ├── processed/  Cleaned data written by the notebook (not tracked)
 │   └── sample/     5,000-row cleaned sample (tracked)
-├── notebooks/   01_data_wrangling_and_eda.ipynb
-├── reports/     figures/ from the EDA; final report to be added
+├── notebooks/   01_data_wrangling_and_eda.ipynb, 02_preprocessing_and_modeling.ipynb
+├── models/      Final scikit-learn pipelines (routing_final.joblib, relief_final.joblib)
+├── reports/     figures/, model_metrics.csv / .md; final report to be added
 └── README.md
 ```
 
