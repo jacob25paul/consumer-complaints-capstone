@@ -2,7 +2,7 @@
 
 Springboard Data Science Career Track, Capstone Three
 
-**Status:** proposal stage. Notebooks, results and the final report will be added as the project progresses.
+**Status:** data wrangling and EDA complete ([`notebooks/01_data_wrangling_and_eda.ipynb`](notebooks/01_data_wrangling_and_eda.ipynb)). Modelling notebooks and the final report will follow.
 
 ## Problem
 
@@ -17,11 +17,11 @@ The full proposal is in [`proposal/consumer-complaints-capstone-Proposal.pdf`](p
 
 ## Data
 
-CFPB [Consumer Complaint Database](https://www.consumerfinance.gov/data-research/consumer-complaints/), as the [Hugging Face snapshot](https://huggingface.co/datasets/consumer-finance-complaints): 3,079,747 complaints. Narratives are present only for consumers who opted in to publication, so the text-based work uses that subset.
+CFPB [Consumer Complaint Database Narratives Archive](https://www.consumerfinance.gov/foia-requests/foia-electronic-reading-room/cfpb-consumer-complaint-database-narratives-archive/): 21 CSV exports (1.43 GB zipped, about 9 GB unzipped) with **17,533,918 complaints** received from December 2011 to August 2026. **3,851,415** of them (22%) include a consumer narrative. Narratives are present only for consumers who opted in to publication, so the text-based work uses that subset. Narrative publication began in March 2015 and nearly stopped in 2026.
 
-The CFPB stopped publishing complaint narratives on August 14, 2026. The snapshot is a fixed historical extract, so results describe past complaints and cannot be refreshed with new narratives.
+The CFPB stopped publishing complaint narratives on August 14, 2026. The archive is a fixed historical extract, so results describe past complaints and cannot be refreshed with new narratives.
 
-The data is not included in this repository. Download the snapshot and place it in `data/`.
+The raw data is not included in this repository. Download all 21 `CCDB_Export_*.zip` files from the archive page and unzip them into `data/raw/`. The notebook analyses a uniform random 20% of rows (`SAMPLE_FRAC = 0.20`) so that it runs on a 16 GB laptop. A 5,000-row sample of cleaned narrative complaints is committed in [`data/sample/`](data/sample/).
 
 ## Planned approach
 
@@ -36,9 +36,12 @@ The data is not included in this repository. Download the snapshot and place it 
 ```
 consumer-complaints-capstone/
 ├── proposal/    Project proposal (PDF)
-├── data/        Place the downloaded snapshot here (not tracked)
-├── notebooks/   Analysis notebooks (to be added)
-├── reports/     Final report and figures (to be added)
+├── data/
+│   ├── raw/        The 21 CFPB archive exports (not tracked)
+│   ├── processed/  Cleaned data written by the notebook (not tracked)
+│   └── sample/     5,000-row cleaned sample (tracked)
+├── notebooks/   01_data_wrangling_and_eda.ipynb
+├── reports/     figures/ from the EDA; final report to be added
 └── README.md
 ```
 

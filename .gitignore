@@ -218,3 +218,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project data: raw CFPB exports (~10 GB) and full cleaned data stay local; data/sample is tracked
+data/raw/
+data/processed/
+.DS_Store
