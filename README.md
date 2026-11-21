@@ -2,7 +2,7 @@
 
 Springboard Data Science Career Track · Capstone Three · Jacob Paul
 
-📄 **Project report:** [`reports/project_report.pdf`](reports/project_report.pdf) · 📊 **Model metrics:** [`reports/model_metrics.md`](reports/model_metrics.md)
+📄 **Project report:** [`reports/project_report.pdf`](reports/project_report.pdf) · 📊 **Model metrics:** [`reports/model_metrics.md`](reports/model_metrics.md) · 🎤 **Slides:** [`slides/Capstone_Final_Slides.pdf`](slides/Capstone_Final_Slides.pdf)
 
 ## The problem
 
@@ -61,6 +61,7 @@ consumer-complaints-capstone/
 │   │                                          5 models per task, comparison, final models, single test evaluation
 │   └── 03_test_set_assessment.ipynb           confusion matrices, lift, calibration, bootstrap CI, error analysis
 ├── models/                      final and reference scikit-learn pipelines (.joblib)
+├── slides/                      final presentation (.pptx + .pdf), speaker notes, Q&A prep, build script
 ├── reports/
 │   ├── project_report.pdf       the project report (built from project_report.md)
 │   ├── project_report.md        report source
